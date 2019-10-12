@@ -4,7 +4,6 @@ class ProductItem extends Component {
 
   constructor(props) {
     super(props);
-    
   }
   render() {
     const {productName , unitPrice} = this.props;
