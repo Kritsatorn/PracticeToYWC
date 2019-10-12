@@ -9,7 +9,7 @@ class ProductItem extends Component {
     const {productName , unitPrice} = this.props;
     return (
       <div>
-        <p>{productName }</p>
+        <p>{productName}</p>
         <p>{unitPrice}</p>
       </div>
     )
