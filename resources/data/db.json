@@ -7,24 +7,6 @@
       "thumbnail": "/images/product/1.jpg"
     },
     {
-      "id": 2,
-      "productName": "ไก่ทอด",
-      "unitPrice": "90",
-      "thumbnail": "/images/product/2.jpg"
-    },
-    {
-      "id": 3,
-      "productName": "บิงซู",
-      "unitPrice": "250",
-      "thumbnail": "/images/product/3.jpg"
-    },
-    {
-      "id": 4,
-      "productName": "เฟรนฟราย",
-      "unitPrice": "120",
-      "thumbnail": "/images/product/4.jpg"
-    },
-    {
       "id": 5,
       "productName": "เค้ก 3 ชั้น",
       "unitPrice": "200",
@@ -38,70 +20,6 @@
     }
   ],
   "orders": [
-    {
-      "orderDate": "2019-10-12T13:55:45.850Z",
-      "totalPrice": 330,
-      "orders": [
-        {
-          "product": {
-            "id": 2,
-            "productName": "ไก่ทอด",
-            "unitPrice": "90",
-            "thumbnail": "/images/product/2.jpg"
-          },
-          "quantity": 3
-        }
-      ],
-      "id": 1
-    },
-    {
-      "orderDate": "2019-10-12T13:56:54.311Z",
-      "totalPrice": 460,
-      "orders": [
-        {
-          "product": {
-            "id": 3,
-            "productName": "บิงซู",
-            "unitPrice": "250",
-            "thumbnail": "/images/product/3.jpg"
-          },
-          "quantity": 3
-        }
-      ],
-      "id": 2
-    },
-    {
-      "orderDate": "2019-10-12T13:58:22.191Z",
-      "totalPrice": 600,
-      "orders": [
-        {
-          "product": {
-            "id": 4,
-            "productName": "เฟรนฟราย",
-            "unitPrice": "120",
-            "thumbnail": "/images/product/4.jpg"
-          },
-          "quantity": 5
-        }
-      ],
-      "id": 3
-    },
-    {
-      "orderDate": "2019-10-12T13:58:30.447Z",
-      "totalPrice": 580,
-      "orders": [
-        {
-          "product": {
-            "id": 1,
-            "productName": "สลัดผัก",
-            "unitPrice": "120",
-            "thumbnail": "/images/product/1.jpg"
-          },
-          "quantity": 4
-        }
-      ],
-      "id": 4
-    },
     {
       "orderDate": "2019-10-12T14:06:40.864Z",
       "totalPrice": 340,
@@ -133,6 +51,38 @@
         }
       ],
       "id": 6
+    },
+    {
+      "orderDate": "2019-10-13T10:23:39.333Z",
+      "totalPrice": 1600,
+      "orders": [
+        {
+          "product": {
+            "id": 2,
+            "productName": "ไก่ทอด",
+            "unitPrice": "90",
+            "thumbnail": "/images/product/2.jpg"
+          },
+          "quantity": 11
+        }
+      ],
+      "id": 7
+    },
+    {
+      "orderDate": "2019-10-13T11:15:37.561Z",
+      "totalPrice": 90,
+      "orders": [
+        {
+          "product": {
+            "id": 2,
+            "productName": "ไก่ทอด",
+            "unitPrice": "90",
+            "thumbnail": "/images/product/2.jpg"
+          },
+          "quantity": 1
+        }
+      ],
+      "id": 8
     }
   ]
 }
