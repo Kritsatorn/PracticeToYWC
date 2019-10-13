@@ -1,31 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      date: new Date()
-    };
+    this.state = { date: new Date() };
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(),1000)
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
-  componentDidUpdate() {
-    console.log("DidUpdate");
-  }
+  componentDidUpdate() {}
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
   tick() {
-    this.setState({date: new Date()})
+    // this.state = {date : new Date()};
+    this.setState({ date: new Date() });
   }
 
   render() {
-    const style = {height : 70};
     return (
       <div className="container-fluid">
         <div className="row">
