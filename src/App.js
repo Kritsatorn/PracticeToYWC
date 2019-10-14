@@ -5,6 +5,7 @@ import About from './container/About';
 import Order from './container/order/Order';
 import Product from './container/product/Product';
 import NotFound from './container/error/NotFound';
+import ProductEdit from './container/product/ProductEdit';
 import { BrowserRouter , Route , Switch} from 'react-router-dom';
 class App extends Component {
 
@@ -15,6 +16,8 @@ class App extends Component {
         <Route exact path="/about" component={About} />
         <Route exact path="/orders" component={Order} />
         <Route exact path="/products" component={Product} />
+        <Route exact path="/products/add" component={ProductEdit} />
+        {/* <Route exact path="/products/edit/:id" component={ProductEdit} /> */}
         <Route component={NotFound} />
       </Switch>
     );
