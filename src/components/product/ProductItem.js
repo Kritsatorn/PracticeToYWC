@@ -19,10 +19,11 @@ class ProductItem extends Component {
                     </button>
                 }
                 {(this.props.onDelProduct || this.props.onEditProduct) &&
-                 <button className="btn btn-info col-5 title"  >
-                    แก้ไข
-                </button>
+                    <button className="btn btn-info col-5 title" onClick={() => this.props.onEditProduct(this.props.product)} >
+                        แก้ไข
+                    </button>
                 }
+
                 {(this.props.onDelProduct || this.props.onEditProduct) &&
                 <button className="btn btn-danger col-5 float-right title" onClick={() => this.props.onDelProduct(this.props.product)} >
                     ลบ

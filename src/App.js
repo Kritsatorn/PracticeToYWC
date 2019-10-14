@@ -4,6 +4,7 @@ import Home from './container/Home';
 import About from './container/About';
 import Order from './container/order/Order';
 import Product from './container/product/Product';
+import NotFound from './container/error/NotFound';
 import { BrowserRouter , Route , Switch} from 'react-router-dom';
 class App extends Component {
 
@@ -11,9 +12,10 @@ class App extends Component {
     return(
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/orders" component={Order} />
-        <Route path="/products" component={Product} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/orders" component={Order} />
+        <Route exact path="/products" component={Product} />
+        <Route component={NotFound} />
       </Switch>
     );
   }
