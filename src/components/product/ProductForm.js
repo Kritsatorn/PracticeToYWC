@@ -1,32 +1,51 @@
 import React, {Component} from 'react';
 import { reduxForm , Field} from 'redux-form';
-
+import FormFeilds from '../common/FormFeild';
+import { connect } from 'react-redux';
+import {productFormFeilds} from '../product/formFeilds';
 class ProductForm extends Component {
 
 
-  renderFields() {
-    const formFeilds = [
-      { name : "productName" , type: "text"},
-      { name : "unitPrice" , type: "number"},
-      { name : "thumbnail" , type: "text"}
-    ]
-    return formFeilds.map( ({name , type}) => {
+  renderFields(formFeilds) {
+    return formFeilds.map(( {label ,name , type, required} ) => {
       return(
-        <Field name={name} type={type} component="input "/>
+        <Field key={name} label={label} name={name} type={type} required={required} component={FormFeilds} />
       )
     })
   }
 
   render(){
+    const {onProductSubmit} = this.props
     return(
       <div>
-        <form>
-          {this.renderFields()}
+        <form onProductSubmit={this.props.handleSubmit(onProductSubmit)} >
+          {this.renderFields(productFormFeilds)}
+          <button className="bnt btn-block btn-info title" type="submit">
+            บันทึก
+          </button>
         </form>
       </div>
     )
   }
 }
 
-ProductForm = reduxForm({ form : "productForm"})(ProductForm);
-export default ProductForm;
+function validate(values) {
+  const errors ={};
+  productFormFeilds.forEach(({name,required}) => {
+    if(!values[name] && required){
+      errors[name]= "กรุณากรอกข้อมูล";
+    }
+  });
+  return errors;
+}
+
+ProductForm = reduxForm({ validate, form : "productForm"})(ProductForm);
+
+function mapStateToProps( {product} ) {
+  if(product) {
+    return { innitialValues : product};
+  } else {
+    return null;
+  }
+}
+export default connect(mapStateToProps)(ProductForm);

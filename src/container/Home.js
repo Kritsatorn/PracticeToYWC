@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Monitor from "../components/monitor/Monitor";
 import Footer from "../components/Footer";
 import { connect } from 'react-redux';
-import{ productFetch } from '../actions'
+import{ productsFetch } from '../actions'
 
 class Home extends Component {
 
@@ -13,7 +13,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.productFetch();
+    this.props.productsFetch();
   }
 
   render() {
@@ -31,4 +31,4 @@ function mapStateToProps({products}) {
   return{products};
 }
 
-export default connect(mapStateToProps, {productFetch})(Home);
+export default connect(mapStateToProps, {productsFetch})(Home);

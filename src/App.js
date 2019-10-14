@@ -8,26 +8,26 @@ import NotFound from './container/error/NotFound';
 import ProductEdit from './container/product/ProductEdit';
 import { BrowserRouter , Route , Switch} from 'react-router-dom';
 class App extends Component {
+	renderRouter() {
+		return (
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/about" component={About} />
+				<Route exact path="/orders" component={Order} />
 
-  renderRouter() {
-    return(
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/orders" component={Order} />
-        <Route exact path="/products" component={Product} />
-        <Route exact path="/products/add" component={ProductEdit} />
-        {/* <Route exact path="/products/edit/:id" component={ProductEdit} /> */}
-        <Route component={NotFound} />
-      </Switch>
-    );
-  }
+				<Route exact path="/products" component={Product} />
+				<Route exact path="/products/add" component={ProductEdit} />
+				<Route exact path="/products/edit/:id" component={ProductEdit} />
 
-  render() {
-    return (
-      <BrowserRouter>{this.renderRouter()}</BrowserRouter>
-    );
-  }
+				<Route component={ NotFound } />
+			</Switch>
+		);
+	}
+
+	render() {
+		return <BrowserRouter>{this.renderRouter()}</BrowserRouter>;
+	}
+
 }
 
 export default App;

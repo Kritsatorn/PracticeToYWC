@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import { withRouter } from 'react-router-dom';
 import ProductList from '../../components/product/ProductList';
 import { connect } from 'react-redux';
-import { productFetch , productDelete} from '../../actions'
+import { productsFetch , productDelete} from '../../actions'
 
 class Product extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Product extends Component {
   }
 
   componentDidMount() {
-    this.props.productFetch();
+    this.props.productsFetch();
   }
 
   editProduct(product) {
@@ -43,11 +43,13 @@ class Product extends Component {
                 </button>
               </div>
           </div>
-          <ProductList
-            products={this.props.products}
-            onDelProduct={this.delProduct}
-            onEditProduct={this.editProduct}
-          />
+          {this.props.products && Array.isArray(this.props.products) &&
+            <ProductList
+              products={this.props.products}
+              onDelProduct={this.delProduct}
+              onEditProduct={this.editProduct}
+            />
+          }
         </div>
         <Footer />
       </div>
@@ -59,4 +61,4 @@ function mapStateToProps({products}){
   return{products}
 }
 
-export default withRouter(connect(mapStateToProps ,{ productFetch , productDelete} )(Product));
+export default withRouter(connect(mapStateToProps ,{ productsFetch , productDelete} )(Product));
