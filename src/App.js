@@ -1,12 +1,13 @@
-import './App.css'
-import React, { Component } from 'react';
-import Home from './container/Home';
-import About from './container/About';
-import Order from './container/order/Order';
-import Product from './container/product/Product';
-import NotFound from './container/error/NotFound';
-import ProductEdit from './container/product/ProductEdit';
-import { BrowserRouter , Route , Switch} from 'react-router-dom';
+import "./App.css";
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./containers/Home";
+import About from "./containers/About";
+import NotFound from "./containers/error/NotFound";
+import Product from "./containers/product/Product";
+import ProductEdit from "./containers/product/ProductEdit";
+import Order from "./containers/order/Order";
+
 class App extends Component {
 	renderRouter() {
 		return (

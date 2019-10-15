@@ -1,9 +1,10 @@
-import React,{ Component} from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import ProductForm from '../../components/product/ProductForm';
-import {connect} from 'react-redux';
-import { productCreate, productUpdate,productFetch} from '../../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { productFetch, productCreate, productUpdate } from "../../actions";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import ProductForm from "../../components/product/ProductForm";
+
 class ProductEdit extends Component {
 	componentDidMount() {
 		if (this.props.match.params.id) {

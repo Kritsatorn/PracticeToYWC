@@ -1,51 +1,60 @@
-import React, {Component} from 'react';
-import { reduxForm , Field} from 'redux-form';
-import FormFeilds from '../common/FormFeild';
-import { connect } from 'react-redux';
-import {productFormFeilds} from '../product/formFeilds';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { reduxForm, Field } from "redux-form";
+import { productFormField } from "./formFields";
+import FormField from "../common/FormField";
+
 class ProductForm extends Component {
+	renderFields(formFields) {
+		return formFields.map(({ label, name, type, required }) => {
+			return (
+				<Field
+					key={name}
+					component={FormField}
+					type={type}
+					label={label}
+					name={name}
+					required={required}
+				/>
+			);
+		});
+	}
 
-
-  renderFields(formFeilds) {
-    return formFeilds.map(( {label ,name , type, required} ) => {
-      return(
-        <Field key={name} label={label} name={name} type={type} required={required} component={FormFeilds} />
-      )
-    })
-  }
-
-  render(){
-    const {onProductSubmit} = this.props
-    return(
-      <div>
-        <form onProductSubmit={this.props.handleSubmit(onProductSubmit)} >
-          {this.renderFields(productFormFeilds)}
-          <button className="bnt btn-block btn-info title" type="submit">
-            บันทึก
-          </button>
-        </form>
-      </div>
-    )
-  }
+	render() {
+		const { onProductSubmit } = this.props;
+		return (
+			<div>
+				<form onSubmit={this.props.handleSubmit(onProductSubmit)}>
+					<div>{this.renderFields(productFormField)}</div>
+					<div>
+						<button className="btn btn-block btn-info title" type="submit" name="action" >
+							บันทึก
+						</button>
+					</div>
+				</form>
+			</div>
+		);
+	}
 }
 
 function validate(values) {
-  const errors ={};
-  productFormFeilds.forEach(({name,required}) => {
-    if(!values[name] && required){
-      errors[name]= "กรุณากรอกข้อมูล";
-    }
-  });
-  return errors;
+	const errors = {};
+	productFormField.forEach(({ name, required }) => {
+		if (!values[name] && required) {
+			errors[name] = "กรุณากรอกข้อมูลด้วยค่ะ";
+		}
+	});
+	return errors;
 }
 
-ProductForm = reduxForm({ validate, form : "productForm"})(ProductForm);
-
-function mapStateToProps( {product} ) {
-  if(product) {
-    return { innitialValues : product};
-  } else {
-    return null;
-  }
+function mapStateToProps({ products}) {
+	if (products && products.id) {
+		return { initialValues: products };
+	} else {
+		return {};
+	}
 }
+
+ProductForm = reduxForm({ validate, form: "productForm" })(ProductForm);
+
 export default connect(mapStateToProps)(ProductForm);
